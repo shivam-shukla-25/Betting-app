@@ -1,0 +1,117 @@
+:root {
+  --bg: #0b0d12;
+  --fg: #e8ecef;
+  --muted: #8a94a1;
+  --panel: #151922;
+  --panel-up: #103c23;
+  --panel-down: #3b1116;
+  --accent-up: #7ae99c;
+  --accent-down: #f08a93;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem 1.5rem;
+}
+
+.page__header {
+  text-align: center;
+}
+
+.page__header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+}
+
+.page__header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.odds-card {
+  position: relative;
+  min-width: 280px;
+  padding: 2.25rem 3rem;
+  border-radius: 16px;
+  background: var(--panel);
+  color: var(--fg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  transition: background 600ms ease, color 600ms ease, box-shadow 600ms ease,
+    transform 200ms ease;
+}
+
+.odds-card__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 600ms ease;
+}
+
+.odds-card__value {
+  font-size: 4.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.odds-card__delta {
+  font-size: 0.85rem;
+  min-height: 1.2em;
+  opacity: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+
+.odds-card--up {
+  background: var(--panel-up);
+  color: var(--accent-up);
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.35),
+    0 10px 40px rgba(22, 163, 74, 0.25);
+}
+
+.odds-card--up .odds-card__label,
+.odds-card--down .odds-card__label {
+  color: inherit;
+  opacity: 0.8;
+}
+
+.odds-card--down {
+  background: var(--panel-down);
+  color: var(--accent-down);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.35),
+    0 10px 40px rgba(220, 38, 38, 0.25);
+}
+
+.odds-card__status {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.odds-card__status--connected {
+  color: var(--accent-up);
+}
